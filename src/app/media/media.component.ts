@@ -8,12 +8,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MediaComponent implements OnInit {
   numeros: number[] = [];
-  media: number = 0;
-  desviacionEstandar: number = 0;
-
+  static media: number = 0;  
+  static desviacionEstandar: number = 0;  
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+   // this.cargarDatos();  
   }
 
   cargarDatos(): void {
@@ -27,12 +27,12 @@ export class MediaComponent implements OnInit {
 
   calcularMedia(): void {
     const suma = this.numeros.reduce((acc, num) => acc + num, 0);
-    this.media = suma / this.numeros.length;
+    MediaComponent.media = suma / this.numeros.length; 
   }
 
   calcularDesviacionEstandar(): void {
-    const media = this.media;
+    const media = MediaComponent.media;  
     const sumaCuadrados = this.numeros.reduce((acc, num) => acc + Math.pow(num - media, 2), 0);
-    this.desviacionEstandar = Math.sqrt(sumaCuadrados / this.numeros.length);
+    MediaComponent.desviacionEstandar = Math.sqrt(sumaCuadrados / this.numeros.length);  
   }
 }

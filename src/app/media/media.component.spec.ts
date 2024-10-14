@@ -33,8 +33,8 @@ describe('MediaComponent', () => {
     req.flush(testData);
 
     fixture.whenStable().then(() => {
-      expect(component.media).toBeCloseTo(553.774, 10); 
-      expect(component.desviacionEstandar).toBeCloseTo(9.078915353719315, 10); 
+      expect(MediaComponent.media).toBeCloseTo(553.774, 10); 
+      expect(MediaComponent.desviacionEstandar).toBeCloseTo(9.078915353719315, 10); 
     });
   }));
 
